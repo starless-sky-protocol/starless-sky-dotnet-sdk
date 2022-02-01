@@ -18,8 +18,8 @@ namespace StarlessSky.Core.Module
         public ContractResult ActContract(string privateKey, string contractId, SignAction action)
         {
             var res = NetworkHandler.JSONRequest(
-                method: System.Net.Http.HttpMethod.Post,
-                url: this.NetworkInstance.GetSecurePath("sign/" + action.ToString()),
+                method: System.Net.Http.HttpMethod.Put,
+                url: this.NetworkInstance.GetSecurePath("sign/" + contractId),
                 data: new
                 {
                     private_key = privateKey,
