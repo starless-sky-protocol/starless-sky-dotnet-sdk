@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>StarlessSky.Core</RootNamespace>
+    <DebugType>embedded</DebugType>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>starless-sky-dotnet-sdk</PackageId>
+    <Authors>starless-sky-dotnet-sdk</Authors>
+    <Company>Starless Sky, Project Principium</Company>
+    <Product>Starless Sky .NET SDK</Product>
+    <Description>The Starless Sky .NET SDK allows easy communication with Starless Sky networks without having to write a lot of API-integration code.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageIcon>h.png</PackageIcon>
+    <RepositoryUrl>https://github.com/starless-sky-protocol</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Alpha</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EnvironmentParser\**" />
+    <Compile Remove="Storage\**" />
+    <EmbeddedResource Remove="EnvironmentParser\**" />
+    <EmbeddedResource Remove="Storage\**" />
+    <None Remove="EnvironmentParser\**" />
+    <None Remove="Storage\**" />
+    <None Include="LICENSE" Pack="true" Visible="false" PackagePath="" />
+    <None Include="README.md" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\h.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>
