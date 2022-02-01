@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarlessSky.Core.Entity;
 
-namespace StarlessSky.Core.Module.Contracts
+namespace StarlessSky.Core.Module
 {
     public class BriefContractInfo
     {

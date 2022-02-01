@@ -1,5 +1,4 @@
 ﻿using StarlessSky.Core.Entity;
-using StarlessSky.Core.Module.Messages;
 using StarlessSky.Core.Network;
 using StarlessSky.Core.API;
 using System;

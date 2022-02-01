@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarlessSky.Core.Module.Messages
+namespace StarlessSky.Core.Module
 {
     public class ReadMessageResult : IStarlessSkyOperationResult
     {

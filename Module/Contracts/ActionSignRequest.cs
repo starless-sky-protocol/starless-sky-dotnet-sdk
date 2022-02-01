@@ -24,7 +24,7 @@ namespace StarlessSky.Core.Module
                 {
                     private_key = privateKey,
                     term = action.ToString().ToLower()
-                }); ;
+                });
 
             ConsoleUtil console = new ConsoleUtil(this.NetworkInstance);
 

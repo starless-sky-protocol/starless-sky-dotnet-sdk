@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.NetworkInformation;
 
+#nullable enable
+
 namespace StarlessSky.Core.API
 {
     public class StarlessSkyNetworkInstance
@@ -30,18 +32,27 @@ namespace StarlessSky.Core.API
             return $"https://{StarlessSkyHost.DnsSafeHost}/" + apiCall.TrimStart('/');
         }
 
-        public bool Ping()
+        public StarlessSky.Core.Module.PingResult? Ping()
         {
-            Ping p = new Ping();
-            bool success = p.Send(StarlessSkyHost.DnsSafeHost).Status == IPStatus.Success;
-            return success;
+            try
+            {
+                return new StarlessSky.Core.Module.ServerProvider(this).Ping();
+            } catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public StarlessSkyNetworkInstance(Uri host)
+        public StarlessSkyNetworkInstance(string host) : this(new Uri(host), true) { }
+
+        public StarlessSkyNetworkInstance(Uri host) : this(host, true) { }
+
+        public StarlessSkyNetworkInstance(Uri host, bool throwOnConnectionError)
         {
             UsingSecureLayer = host.Scheme.ToLower() == "https";
             StarlessSkyHost = host;
-            if(!Ping())
+            Module.PingResult? ping = this.Ping();
+            if((ping == null || !ping!.Success) && throwOnConnectionError)
             {
                 throw new ArgumentException("Cannot access " + host.DnsSafeHost);
             }

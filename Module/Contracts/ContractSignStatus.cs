@@ -19,12 +19,13 @@ namespace StarlessSky.Core.Module
 
         public ContractSignStatus SignStatus { get; set; }
 
-        public static ContractSignStatus ParseRawStatus(dynamic? status)
+        public static ContractSignStatus ParseRawStatus(dynamic status)
         {
-            if(status == null)
+            if (status == null)
             {
                 return ContractSignStatus.Nothing;
-            } else
+            }
+            else
             {
                 return status == true ? ContractSignStatus.Signed : ContractSignStatus.Refused;
             }
