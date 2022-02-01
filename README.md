@@ -10,8 +10,12 @@ Currently the project is targeting **.NET 5** and **.NET 6**. Both of this versi
 
 ## Installation
 
-The repository is not available in the nuget manager (yet) but you can clone the latest stable version of the SDK and reference it in your project.
+You can install this library as an Nuget package with
 
+    Install-Package starless-sky-dotnet-sdk -Version 1.0.0
+
+or build using `dotnet build`.
+	
 After cloning and refering it on your project, you will have access to `StarlessSky.Core` classes.
 
 ```csharp
